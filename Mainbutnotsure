@@ -38,7 +38,7 @@ FirstTab:AddButton({"Example Button (prints <font color='rgb(88, 101, 242)'>Hell
 print("Hello World!")
 end})
 
-local LolToggle = FirstTab:AddToggle({
+local LolToggle = HomeTab:AddToggle({
   Name = "Farms",
   Description = "Prints the state of the toggle (<font color='rgb(0, 255, 0)'>On</font> or <font color='rgb(255, 0, 0)'>Off</font>)",
   Default = false 
@@ -51,9 +51,9 @@ LolToggle:Callback(function(Value)
     end
 end)
 
--- Add speed slider (prints value up to 300, increases by 5)
+-- Add speed slider (prints value up to 350, increases by 5)
 -- Add slider with updated name and formatting
-FirstTab:AddSlider({
+HomeTab:AddSlider({
     Name = "Player Speed",
     Min = 1,
     Max = 350,
@@ -66,6 +66,19 @@ FirstTab:AddSlider({
    end,
 })
 
+    HomeTab:AddSlider({
+    Name = "Jump Power",
+    Min = 1,
+    Max = 350,
+    Increase = 5,
+    Default = 16,
+    Callback = function(Value)
+                   Flag = "sliderjp", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value)
+   end,
+})
+        
 -- Third tab: Second Tab with dice-2 icon
 local SecondTab = Window:MakeTab({"Second Tab", "dice-2"})
 
