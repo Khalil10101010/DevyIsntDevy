@@ -18,7 +18,7 @@ Window:AddMinimizeButton({
     }
 })
 
--- First tab: Discord invite
+-- First tab: MainTab
 local MainTab = Window:MakeTab({"MainTab", "mail"})
 
 MainTab:AddDiscordInvite({
@@ -28,8 +28,8 @@ MainTab:AddDiscordInvite({
     Invite = "https://discord.gg/csVvxdTYNg"
 })
 
--- Second tab: First Tab with dice icon
-local FirstTab = Window:MakeTab({"First Tab", "dice-1"})
+-- HomeTab: SecondTab Tab with dice icon
+local HomeTab = Window:MakeTab({"HomeTab", "mail"})
 
 -- Select "First Tab" by default
 Window:SelectTab(FirstTab)
@@ -54,14 +54,16 @@ end)
 -- Add speed slider (prints value up to 300, increases by 5)
 -- Add slider with updated name and formatting
 FirstTab:AddSlider({
-    Name = "Slider Example (prints the sliders <font color='rgb(255, 255, 0)'>value</font>)",
+    Name = "Player Speed",
     Min = 1,
-    Max = 300,
+    Max = 350,
     Increase = 5,
     Default = 16,
     Callback = function(Value)
-        print("Slider value is:", Value)
-    end
+     Flag = "sliderws", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   end,
 })
 
 -- Third tab: Second Tab with dice-2 icon
