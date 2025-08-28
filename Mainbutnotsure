@@ -19,11 +19,11 @@ Window:AddMinimizeButton({
 })
 
 -- First tab: Discord invite
-local HomeTab = Window:MakeTab({"NotHomeTab", "mail"})
+local MainTab = Window:MakeTab({"MainTab", "mail"})
 
-DiscordInviteTab:AddDiscordInvite({
+MainTab:AddDiscordInvite({
     Name = "Devy Hub | Top 1 Script",
-    Description = "hoin the discord server for free perm key giveaway",
+    Description = "join the discord server for free perm key giveaway",
     Logo = "rbxassetid://92973777304803",
     Invite = "https://discord.gg/csVvxdTYNg"
 })
